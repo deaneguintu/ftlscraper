@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invoicer — Offline Invoicing</title>
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Create, manage, and print invoices entirely offline." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="offline-banner" class="banner" hidden>You're offline — everything here still works. Changes are saved on this device.</div>
+  <div id="update-banner" class="banner banner-accent" hidden>
+    A new version is ready. <button id="update-reload">Reload</button>
+  </div>
+
+  <div class="app-shell">
+    <nav class="sidebar">
+      <div class="brand">
+        <img src="icons/icon.svg" alt="" width="28" height="28" />
+        <span>Invoicer</span>
+      </div>
+      <a href="#/" class="nav-link" data-route="/">Dashboard</a>
+      <a href="#/invoices" class="nav-link" data-route="/invoices">Invoices</a>
+      <a href="#/clients" class="nav-link" data-route="/clients">Clients</a>
+      <a href="#/settings" class="nav-link" data-route="/settings">Settings</a>
+      <div class="sidebar-footer">
+        <span id="install-app" hidden>
+          <button id="install-btn" class="btn btn-ghost">Install app</button>
+        </span>
+        <p class="muted small">Works fully offline. Your data stays on this device.</p>
+      </div>
+    </nav>
+
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+
+  <!-- Printable invoice, kept off-screen except when printing -->
+  <div id="print-root"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
